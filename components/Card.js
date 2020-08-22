@@ -1,25 +1,33 @@
-import React, { useEffect } from 'react';
-import { StyleSheet,View, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet,View, ScrollView, FlatList,Text } from 'react-native';
+import CardList from './CardList';
 
 export default function Card(){
+
+    const [planets, setPlanets] = useState([])
 
     useEffect(() => {
         fetch('https://swapi.dev/api/planets/')
         .then(response => response.json())
-        .then(data => console.log(data.results))
-    },[])
+        .then(data => {
+            data.id = Math.random()
+            setPlanets(data.results)
+        })
+    },[])    
 
     return(
-        <View style={styles.containerList}>   
-        <ScrollView style={styles.scroll}>     
-            <View style={styles.containerResult}>
-               
-            </View>            
+        <View style={styles.containerList}>               
+            <ScrollView style={styles.scroll}>     
+                <FlatList 
+                    style={styles.list}
+                    data={ planets }
+                    renderItem={ ({item}) => <CardList item={item} /> }
+                    keyExtractor={planets => planets.id}            
+                />      
         </ScrollView> 
     </View>
     )
 }
-
 
 const styles = StyleSheet.create({
     containerList:{
@@ -43,5 +51,11 @@ const styles = StyleSheet.create({
         marginTop:100,
         alignContent:"center",
         marginHorizontal:90,
+    },
+    list:{
+        color:'white'
+    },
+    title:{
+        color:'white',
     }
 });
