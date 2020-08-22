@@ -4,7 +4,7 @@ import CardList from './CardList';
 
 export default function Card(){
 
-    const [planets, setPlanets] = useState([])
+    const [ planets, setPlanets ] = useState([])
 
     useEffect(() => {
         fetch('https://swapi.dev/api/planets/')
@@ -17,9 +17,9 @@ export default function Card(){
 
     return(
         <View style={styles.containerList}>               
-            <ScrollView style={styles.scroll}>     
+        <ScrollView style={styles.scroll}>     
                 <FlatList 
-                    style={styles.list}
+                    style={ styles.list }
                     data={ planets }
                     renderItem={ ({item}) => <CardList item={item} /> }
                     keyExtractor={planets => planets.id}            

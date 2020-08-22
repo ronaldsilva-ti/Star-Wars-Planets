@@ -17,8 +17,7 @@ export default function Home(){
     <View>
       <ImageBackground  source={background} style={{width: '100%', height: '100%'}}>
          <View style={styles.containerImage}>
-            <Image  style={styles.logo} source={logo} />    
-                        
+            <Image  style={styles.logo} source={logo} />                         
             <Card/>                        
          </View>
       </ImageBackground>   
