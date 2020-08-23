@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity   } from 'react-native';
 
-export default function CardList({item, onOpen}){
+export default function CardList({item, onOpen }){
     
     return(
         <View style={styles.containerResult}>            
              <Text style={styles.title}>{item.name}</Text>
              <Text style={styles.populationTitle}>POPULAÇÃO</Text>
              <Text style={styles.population}>{item.population === 'unknown' ? 'Indefenida' : item.population}</Text>
-             <TouchableOpacity style={styles.appButton} onPress={onOpen}>
+             <TouchableOpacity style={styles.appButton} onPress={ onOpen }>
                  <Text style={styles.appButtonTitle}>VER MAIS</Text>
              </TouchableOpacity>
         </View>

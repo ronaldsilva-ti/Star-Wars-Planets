@@ -1,5 +1,5 @@
-import React, { useState, useEffect,useRef } from 'react';
-import { StyleSheet,View, ScrollView, FlatList,Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet,View, ScrollView, FlatList } from 'react-native';
 import CardList from './CardList';
 
 export default function Card({onOpen}){
@@ -21,7 +21,7 @@ export default function Card({onOpen}){
                 <FlatList 
                     style={ styles.list }
                     data={ planets }
-                    renderItem={ ({item}) => <CardList item={item} onOpen={onOpen} /> }
+                    renderItem={ ({item}) => <CardList item={item} onOpen={onOpen}/> }
                     keyExtractor={planets => planets.id}            
                 />     
         </ScrollView> 

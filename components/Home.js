@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 import {
   StyleSheet,
@@ -22,13 +22,11 @@ export default function Home(){
   const modalizeRef = useRef(null);
 
   function onOpen(){
-      modalizeRef.current?.open();
-      console.log('REF')
+      modalizeRef.current?.open();   
   }
 
 function onExit(){
   modalizeRef.current?.close();
-  console.log('REF')
 }
 
   return(
@@ -37,7 +35,7 @@ function onExit(){
       <ImageBackground  source={background} style={{width: '100%', height: '100%'}}>
          <View style={styles.containerImage}>
             <Image  style={styles.logo} source={logo} />                         
-            <Card onOpen={onOpen}/>                              
+            <Card onOpen={onOpen} />                              
          </View>         
       </ImageBackground>
 
