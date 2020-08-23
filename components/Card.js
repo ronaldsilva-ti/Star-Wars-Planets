@@ -25,7 +25,6 @@ export default function Card({onOpen}){
                     keyExtractor={planets => planets.id}            
                 />     
         </ScrollView> 
-
     </View>
     )
 }

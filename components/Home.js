@@ -1,14 +1,14 @@
-import React, { useState, useRef } from 'react';
-
+import React, {  useRef } from 'react';
 import {
   StyleSheet,
   ImageBackground, 
   View,
   Image, 
   Text,
-  TouchableWithoutFeedback
-  
+  TouchableWithoutFeedback  
 } from 'react-native';
+
+import { useDispatch } from 'react-redux';
 
 import background from '../assets/img/fundo-01.png';
 import logo from '../assets/img/unnamed.png';
@@ -16,18 +16,23 @@ import logo from '../assets/img/unnamed.png';
 import Card from './Card';
 import { Modalize } from 'react-native-modalize';
 import CardModal from './CardModal';
+import {clearDetailActions} from '../actions/DetailsActions';
 
 export default function Home(){
 
-  const modalizeRef = useRef(null);
+const dispatch = useDispatch()
 
-  function onOpen(){
+const modalizeRef = useRef(null);  
+
+function onOpen(){
       modalizeRef.current?.open();   
-  }
+}
 
 function onExit(){
   modalizeRef.current?.close();
+  dispatch(clearDetailActions())  
 }
+
 
   return(
     <TouchableWithoutFeedback onPress={() => onExit()}>
@@ -35,7 +40,7 @@ function onExit(){
       <ImageBackground  source={background} style={{width: '100%', height: '100%'}}>
          <View style={styles.containerImage}>
             <Image  style={styles.logo} source={logo} />                         
-            <Card onOpen={onOpen} />                              
+            <Card  onOpen={onOpen} />                              
          </View>         
       </ImageBackground>
 
