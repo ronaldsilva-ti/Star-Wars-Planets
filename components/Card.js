@@ -51,9 +51,11 @@ const styles = StyleSheet.create({
         marginTop:100,
         alignContent:"center",
         marginHorizontal:90,
+        width:'100%',   
     },
     list:{
-        color:'white'
+        color:'white',
+        
     },
     title:{
         color:'white',

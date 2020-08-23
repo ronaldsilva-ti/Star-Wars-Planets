@@ -44,7 +44,7 @@ function onExit(){
          </View>         
       </ImageBackground>
 
-      <Modalize ref={modalizeRef} snapPoint={300}>
+      <Modalize style={{backgroundColor:'black'}} ref={modalizeRef} snapPoint={300}>
             <CardModal/>        
       </Modalize>      
     </View>
