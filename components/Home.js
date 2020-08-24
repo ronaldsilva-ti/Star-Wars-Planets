@@ -5,7 +5,8 @@ import {
   View,
   Image, 
   Text,
-  TouchableWithoutFeedback  
+  TouchableWithoutFeedback,
+  ScrollView
 } from 'react-native';
 
 import { useDispatch } from 'react-redux';
@@ -35,16 +36,20 @@ function onExit(){
 
 
   return(
+    
     <TouchableWithoutFeedback onPress={() => onExit()}>
     <View>
       <ImageBackground  source={background} style={{width: '100%', height: '100%'}}>
+         
          <View style={styles.containerImage}>
-            <Image  style={styles.logo} source={logo} />                         
-            <Card  onOpen={onOpen} />                              
+            <Image  style={styles.logo} source={logo} />
+            <ScrollView style={{ flexGrow : 2, Height: "auto",marginTop:100}}>                           
+              <Card  onOpen={onOpen} />    
+            </ScrollView>                           
          </View>         
       </ImageBackground>
 
-      <Modalize style={{backgroundColor:'black'}} ref={modalizeRef} snapPoint={300}>
+      <Modalize style={{ backgroundColor:'black' }} ref={modalizeRef} snapPoint={300}>
             <CardModal/>        
       </Modalize>      
     </View>

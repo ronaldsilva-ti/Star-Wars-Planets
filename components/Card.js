@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet,View, ScrollView, FlatList } from 'react-native';
+import { StyleSheet,View, ScrollView, FlatList, Text } from 'react-native';
 import CardList from './CardList';
 
 export default function Card({onOpen}){
@@ -16,16 +16,14 @@ export default function Card({onOpen}){
     },[])    
 
     return(
-        <View style={styles.containerList}>               
-        <ScrollView style={styles.scroll}>     
+             
                 <FlatList 
-                    style={ styles.list }
-                    data={ planets }
-                    renderItem={ ({item}) => <CardList item={item} onOpen={onOpen}/> }
-                    keyExtractor={planets => planets.id}            
-                />     
-        </ScrollView> 
-    </View>
+                            style={ styles.list }
+                            data={ planets }
+                            renderItem={ ({item}) => <CardList item={item} onOpen={onOpen}/> }
+                            keyExtractor={planets => planets.id}            
+                />                            
+            
     )
 }
 
@@ -47,14 +45,14 @@ const styles = StyleSheet.create({
         marginHorizontal:5,         
         margin:10
     },
-    scroll:{        
+    scroll:{           
         marginTop:100,
         alignContent:"center",
-        marginHorizontal:90,
-        width:'100%',   
+        marginHorizontal:90,  
     },
     list:{
         color:'white',
+        flex:1
         
     },
     title:{

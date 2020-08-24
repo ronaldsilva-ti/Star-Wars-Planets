@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity   } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,ScrollView   } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { getDetailActions } from '../actions/DetailsActions'
 
 export default function CardList({item, onOpen }){
     const dispatch = useDispatch()
-    return(
+    return(     
         <View style={styles.containerResult}>            
              <Text style={styles.title}>{item.name}</Text>
              <Text style={styles.populationTitle}>POPULAÇÃO</Text>
@@ -18,6 +18,7 @@ export default function CardList({item, onOpen }){
                  <Text style={styles.appButtonTitle}>VER MAIS</Text>
              </TouchableOpacity>
         </View>
+       
     )
 }
 

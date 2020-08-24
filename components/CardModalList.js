@@ -27,7 +27,7 @@ export default  function CardModalList({item}){
         <Text style={styles.textItem}>Planeta: {item.name}</Text>
         <Text style={styles.textItem}>Clima: {item.climate}</Text>
         <Text style={styles.textItem}>Terra: {item.terrain}</Text>
-        <Text style={styles.textItem}>População: {item.population} habitantes</Text>  
+        <Text style={styles.textItem}>População: {item.population === 'unknown' ? 'Indefenida' : item.population }</Text>  
         <Text style={styles.textItem}>Massa: {item.diameter}</Text> 
         <Text style={styles.textItem}>Residentes:</Text>  
 
@@ -39,7 +39,7 @@ export default  function CardModalList({item}){
               <Text style={styles.residents}>Massa: {item.mass  === 'unknown' ? 'Indefenida' : item.mass}</Text>
             </View>
           )}
-        
+          keyExtractor={item => item.id}  
         />
       </View>
     )
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize:50,   
   },
   textItem:{
-    fontSize:20,
+    fontSize:14,
     color:'#EBFF00',
     marginTop:10,
     textTransform:'uppercase'
@@ -67,5 +67,5 @@ const styles = StyleSheet.create({
     color:'white',
     textAlign:'center',   
     margin:5
-  }
+  },
 })
