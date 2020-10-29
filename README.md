@@ -1,5 +1,6 @@
 # Star-Wars-Planets
 React Native -  Star Wars Planets 
+
 1.Install Node.js
 
 2.```git clone https://github.com/ronaldsilva-ti/Star-Wars-Planets.git```
